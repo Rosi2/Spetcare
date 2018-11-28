@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">spetcare</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="registro">Registrarse</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
 </resources>
