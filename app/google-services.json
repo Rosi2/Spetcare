@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "415590144815",
+    "firebase_url": "https://spetcare-77902.firebaseio.com",
+    "project_id": "spetcare-77902",
+    "storage_bucket": "spetcare-77902.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415590144815:android:f9051ea20721429c",
+        "android_client_info": {
+          "package_name": "com.example.hphp.spetcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415590144815-1rd9au1kcitp67d765eeg0f3496q0bak.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hphp.spetcare",
+            "certificate_hash": "87d05347a0abaaf74510f0ed0b832c52013c22bd"
+          }
+        },
+        {
+          "client_id": "415590144815-bou4tq1meg4qfrhp0dmkgnbn9ihbcbjn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9BCPepNs6ItHieJxWQPeG0duSAUcdhoY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415590144815-bou4tq1meg4qfrhp0dmkgnbn9ihbcbjn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
