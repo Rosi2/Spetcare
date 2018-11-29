@@ -4,4 +4,11 @@
     <string name="registro">Registrarse</string>
     <string name="email">Email</string>
     <string name="password">Contraseña</string>
+
+    <string-array name="animales_array">
+        <item>Perro</item>
+        <item>Gato</item>
+        <item>Ave</item>
+        <item>Hamster</item>
+    </string-array>
 </resources>
