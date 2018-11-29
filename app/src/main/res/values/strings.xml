@@ -4,6 +4,7 @@
     <string name="registro">Registrarse</string>
     <string name="email">Email</string>
     <string name="password">Contraseña</string>
+
     <string name="title_activity_tab">tabActivity</string>
     <string name="tab_text_1">Tips</string>
     <string name="tab_text_2">Vacunas</string>
@@ -20,4 +21,5 @@
         <item>Ave</item>
         <item>Hamster</item>
     </string-array>
+
 </resources>

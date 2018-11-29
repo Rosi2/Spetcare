@@ -6,10 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:background="@color/fondo"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="127dp"
+        tools:layout_editor_absoluteY="39dp">
+
+        <ImageView
+            android:id="@+id/image_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            app:srcCompat="@drawable/logo"
+            tools:ignore="VectorDrawableCompat" />
+
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
@@ -19,6 +34,7 @@
             android:inputType="textEmailAddress"
             tools:layout_editor_absoluteX="84dp"
             tools:layout_editor_absoluteY="232dp" />
+
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
@@ -28,14 +44,17 @@
             android:inputType="textPassword"
             tools:layout_editor_absoluteX="84dp"
             tools:layout_editor_absoluteY="298dp" />
+
         <Button
             android:id="@+id/login"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login"
             android:layout_gravity="center"
+            android:text="@string/login"
             tools:layout_editor_absoluteX="135dp"
-            tools:layout_editor_absoluteY="377dp" />
+            tools:layout_editor_absoluteY="377dp"
+            />
+
         <Button
             android:id="@+id/registrar"
             android:layout_width="wrap_content"
