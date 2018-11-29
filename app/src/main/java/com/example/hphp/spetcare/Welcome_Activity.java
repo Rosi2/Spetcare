@@ -1,6 +1,7 @@
 package com.example.hphp.spetcare;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -30,6 +31,9 @@ public class Welcome_Activity extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
+                Intent intent = new Intent(getBaseContext(), tabActivity.class);
+                intent.putExtra("animal", position);
+                startActivity(intent);
                 Toast.makeText(Welcome_Activity.this, "" + position,
                         Toast.LENGTH_SHORT).show();
             }

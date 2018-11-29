@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Intent intencion = new Intent(getApplication(), Welcome_Activity.class);
                             intencion.putExtra(Welcome_Activity.user, user);
                             startActivity(intencion);
+                            finish();
                         } else {
                             if (task.getException() instanceof FirebaseAuthUserCollisionException) {//si se presenta una colisión
                                 Toast.makeText(MainActivity.this, "Ese usuario ya existe ", Toast.LENGTH_SHORT).show();
