@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -18,10 +19,25 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class tipsFragment extends Fragment {
-        @Override
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tips, container, false);
+    }
+    @Override
+    public void onStart(){
+        super.onStart();
+        int mascota = this.getArguments().getInt("mascota", -1);
+        TextView textView = getActivity().findViewById(R.id.animal);
+        if(mascota == 0){
+            textView.setText("El animal es un perro :D");
+        }else if(mascota == 1){
+            textView.setText("El animal es un gato :D");
+        }else if(mascota == 2){
+            textView.setText("El animal es un hamster :D");
+        }else if(mascota == 3){
+            textView.setText("El animal es un pajaro :D");
+        }
     }
 }

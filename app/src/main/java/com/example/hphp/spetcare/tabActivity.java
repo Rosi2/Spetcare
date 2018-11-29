@@ -1,5 +1,6 @@
 package com.example.hphp.spetcare;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -54,7 +55,6 @@ public class tabActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
@@ -95,13 +95,17 @@ public class tabActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("mascota", getIntent().getIntExtra("animal", -1));
             switch (position){
                 case 0:
                     tipsFragment tab1 = new tipsFragment();
+                    tab1.setArguments(bundle);
                     return tab1;
                 case 1:
                     vacunas tab2 = new vacunas();
-                    return  tab2;
+                    tab2.setArguments(bundle);
+                    return tab2;
                 default:
                     return null;
             }
