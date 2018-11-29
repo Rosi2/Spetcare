@@ -3,12 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vacunas">
+    tools:context=".vacunas"
+    android:background="@color/fondo"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/parent_linear_layout_vaccine">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="35dp"
+                android:id="@+id/vaccine_pet_name"
+                android:text="Vacunas Nombre"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

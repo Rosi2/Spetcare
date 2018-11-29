@@ -34,8 +34,6 @@ public class Welcome_Activity extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(), tabActivity.class);
                 intent.putExtra("animal", position);
                 startActivity(intent);
-                Toast.makeText(Welcome_Activity.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
             }
         });
     }
