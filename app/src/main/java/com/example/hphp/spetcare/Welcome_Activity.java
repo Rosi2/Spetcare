@@ -22,7 +22,7 @@ public class Welcome_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         txtUser =(TextView)findViewById(R.id.textser);
         String user = getIntent().getStringExtra("names");
-        txtUser.setText("¡Bienvenido "+ user +"!");
+        txtUser.setText("Bienvenido "+ user);
         setContentView(R.layout.activity_welcome);
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
