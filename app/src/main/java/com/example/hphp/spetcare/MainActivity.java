@@ -6,8 +6,12 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -26,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText TextPassword;
     private Button btnRegistrar, btnLogin;
     private ProgressDialog progressDialog;
+    EditText mEtPwd;
+    CheckBox mCbShowPwd;
     //Declaramos un objeto firebaseAuth
     private FirebaseAuth firebaseAuth;
     @Override
@@ -43,6 +49,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //attaching listener to button
         btnRegistrar.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
+
+        mEtPwd = (EditText) findViewById(R.id.password);
+        mCbShowPwd = (CheckBox) findViewById(R.id.checkBox2);
+        // add onCheckedListener on checkbox
+        // when user clicks on this checkbox, this is the handler.
+        mCbShowPwd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // checkbox status is changed from uncheck to checked.
+                if (!isChecked) {
+                    // show password
+                    mEtPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                } else {
+                    // hide password
+                    mEtPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+            }
+        });
+
     }
     private void registrarUsuario(){
         //Obtenemos el email y la contraseña desde las cajas de texto
