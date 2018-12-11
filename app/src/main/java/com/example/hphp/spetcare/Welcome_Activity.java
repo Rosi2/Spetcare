@@ -13,9 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Welcome_Activity extends AppCompatActivity {
     public static final String user="names";
     TextView txtUser;
+    String seleccionado;
+    DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +28,7 @@ public class Welcome_Activity extends AppCompatActivity {
         txtUser =(TextView)findViewById(R.id.textser);
         String user = getIntent().getStringExtra("names");
         txtUser.setText("Bienvenido "+ user);
+        databaseReference= FirebaseDatabase.getInstance().getReference();
         setContentView(R.layout.activity_welcome);
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
@@ -31,8 +37,11 @@ public class Welcome_Activity extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
+                seleccionado = Integer.toString(position);
+                datos p1 = new datos(seleccionado);
                 Intent intent = new Intent(getBaseContext(), tabActivity.class);
                 intent.putExtra("animal", position);
+                databaseReference.child("Animal:").child(seleccionado).setValue(seleccionado);
                 startActivity(intent);
             }
         });
