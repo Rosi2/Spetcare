@@ -41,7 +41,14 @@ public class Welcome_Activity extends AppCompatActivity {
                 datos p1 = new datos(seleccionado);
                 Intent intent = new Intent(getBaseContext(), tabActivity.class);
                 intent.putExtra("animal", position);
-                databaseReference.child("Animal:").child(seleccionado).setValue(seleccionado);
+                if(seleccionado.equals("0")){
+                    databaseReference.child(MainActivity.usuario).child("Animal").child("Perro").setValue(seleccionado);}
+                else if (seleccionado.equals("1")){
+                    databaseReference.child(MainActivity.usuario).child("Animal").child("Gato").setValue(seleccionado);}
+                else if (seleccionado.equals("2")){
+                    databaseReference.child(MainActivity.usuario).child("Animal").child("Hamster").setValue(seleccionado);}
+                else{
+                    databaseReference.child(MainActivity.usuario).child("Animal").child("Ave").setValue(seleccionado);}
                 startActivity(intent);
             }
         });

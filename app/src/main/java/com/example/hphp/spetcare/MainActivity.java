@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnRegistrar, btnLogin;
     private ProgressDialog progressDialog;
     EditText mEtPwd;
+    public static String usuario;
     CheckBox mCbShowPwd;
     //Declaramos un objeto firebaseAuth
     private FirebaseAuth firebaseAuth;
@@ -129,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Toast.makeText(MainActivity.this, "Bienvenido: " + TextEmail.getText(), Toast.LENGTH_LONG).show();
                             Intent intencion = new Intent(getApplication(), Welcome_Activity.class);
                             intencion.putExtra(Welcome_Activity.user, user);
+                            usuario=user;
                             startActivity(intencion);
                             finish();
                         } else {

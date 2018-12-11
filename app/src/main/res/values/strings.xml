@@ -16,10 +16,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="animales_array">
-        <item>Perro</item>
-        <item>Gato</item>
-        <item>Ave</item>
-        <item>Hamster</item>
+        <item>Raza pequeña</item>
+        <item>Raza Mediana</item>
+        <item>Raza Grande</item>
     </string-array>
 
 </resources>
