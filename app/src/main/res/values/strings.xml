@@ -21,4 +21,6 @@
         <item>Raza Grande</item>
     </string-array>
 
+    <string name="titulo_tip_1">Mantener un peso saludable</string>
+    <string name="texto_tip_1">Este consejo aplica tanto para mascotas como para los dueños. Uno lleva una vida más ligera cuando no tiene que preocuparse por cargar kilos extra.</string>
 </resources>

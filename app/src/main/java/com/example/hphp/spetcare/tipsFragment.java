@@ -19,7 +19,10 @@ import android.widget.TextView;
  * Use the {@link tipsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class tipsFragment extends Fragment {
+public class
+tipsFragment extends Fragment {
+    public String texto;
+    public String titulo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,6 +32,8 @@ public class tipsFragment extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
+        texto= getResources().getString(R.string.texto_tip_1);
+        titulo= getResources().getString(R.string.titulo_tip_1);
         int mascota = this.getArguments().getInt("mascota", -1);
         TextView textView = getActivity().findViewById(R.id.pet_name);
         LinearLayout parentLinear = getActivity().findViewById(R.id.parent_linear_layout);
@@ -39,8 +44,14 @@ public class tipsFragment extends Fragment {
                 final View rowView = inflater.inflate(R.layout.tipfield, null);
                 TextView titleText = rowView.findViewById(R.id.tip_title);
                 TextView bodyText = rowView.findViewById(R.id.tip_body);
+                if(i==0){
+                    titleText.setText(titulo);
+                    bodyText.setText(texto);
+                }
+                else
+                {
                 titleText.setText("Tip " + i + "perro");
-                bodyText.setText("Descripcion del tip " + i);
+                bodyText.setText("Descripcion del tip " + i);}
                 parentLinear.addView(rowView, -1);
             }
         }else if(mascota == 1){

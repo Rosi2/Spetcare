@@ -28,6 +28,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hphp.spetcare.Welcome_Activity" />
         </activity>
+
     </application>
 
 </manifest>

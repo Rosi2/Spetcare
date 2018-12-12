@@ -106,6 +106,7 @@ public class tabActivity extends AppCompatActivity {
                     vacunas tab2 = new vacunas();
                     tab2.setArguments(bundle);
                     return tab2;
+
                 default:
                     return null;
             }
