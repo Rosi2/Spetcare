@@ -48,11 +48,10 @@ tipsFragment extends Fragment {
                     titleText.setText(titulo);
                     bodyText.setText(texto);
                 }
-                else
-                {
-                titleText.setText("Tip " + i + "perro");
-                bodyText.setText("Descripcion del tip " + i);}
-                parentLinear.addView(rowView, -1);
+                else {
+                    titleText.setText("Tip " + i + "perro");
+                    bodyText.setText("Descripcion del tip " + i);}
+                    parentLinear.addView(rowView, -1);
             }
         }else if(mascota == 1){
             textView.setText("Gatos");
