@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     CheckBox mCbShowPwd;
     //Declaramos un objeto firebaseAuth
     private FirebaseAuth firebaseAuth;
+
+    static MainActivity main;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //attaching listener to button
         btnRegistrar.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
+
+        main = this;
 
         mEtPwd = (EditText) findViewById(R.id.password);
         mCbShowPwd = (CheckBox) findViewById(R.id.checkBox2);
@@ -70,6 +75,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+    }
+
+    public static MainActivity getInstance(){
+        return main;
     }
 
     @Override
