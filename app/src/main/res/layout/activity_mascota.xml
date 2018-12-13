@@ -49,10 +49,21 @@
 
             <android.support.design.button.MaterialButton
                 android:id="@+id/guardar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_rgt2"
+                android:textAllCaps="false"
+                android:textColor="#ffff"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:onClick="miMascota"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
+
                 android:text= "Guardar" />
 
         </RelativeLayout>
