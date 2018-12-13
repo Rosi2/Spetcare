@@ -21,7 +21,8 @@
         <activity android:name=".Welcome_Activity" />
         <activity android:name=".Register"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".mascota" />
+        <activity android:name=".mascota"
+            android:parentActivityName=".Welcome_Activity"/>
         <activity
             android:name=".tabActivity"
             android:label="@string/title_activity_tab"
