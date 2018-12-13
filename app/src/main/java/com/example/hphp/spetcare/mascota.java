@@ -23,8 +23,8 @@ public class mascota extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mascota);
 
-        boton1 = (Button)findViewById(R.id.guardar);
-        nombre = (EditText) findViewById(R.id.nombreM);
+        boton1 = (Button)findViewById(R.id.guardarM);
+        nombre = (EditText) findViewById(R.id.nombre);
         tipo = (EditText) findViewById(R.id.tipo);
         databaseReference= FirebaseDatabase.getInstance().getReference();
         txtUser =(TextView)findViewById(R.id.textser);
@@ -33,11 +33,9 @@ public class mascota extends AppCompatActivity {
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                seleccionado = nombre.getText().toString();
-                seleccionado1 = tipo.getText().toString();
-                datos p1 = new datos(seleccionado);
-                databaseReference.child(MainActivity.usuario).child("Mi mascota").setValue(nombre);
-                databaseReference.child(MainActivity.usuario).child("Mi mascota").setValue(tipo);
+                //datos p1 = new datos(Welcome_Activity.prueba);
+                //databaseReference.child(Welcome_Activity.prueba).child("Mi mascota").setValue(nombre);
+                //databaseReference.child(Welcome_Activity.prueba).child("Mi mascota").setValue(tipo);
                 Intent myintent = new Intent(getApplicationContext(),Welcome_Activity.class);
                 startActivity(myintent);
 
