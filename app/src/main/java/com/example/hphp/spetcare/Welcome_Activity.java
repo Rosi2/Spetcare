@@ -3,6 +3,7 @@ package com.example.hphp.spetcare;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,22 +29,20 @@ public class Welcome_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    public void onStart(){
+        super.onStart();
         setContentView(R.layout.activity_welcome);
-        mascota= (Button) findViewById(R.id.mascota);
+        mascota= findViewById(R.id.mascota);
         txtUser =(TextView)findViewById(R.id.textser);
         String user = getIntent().getStringExtra("names");
         txtUser.setText("Bienvenido "+ user);
         databaseReference= FirebaseDatabase.getInstance().getReference();
         setContentView(R.layout.activity_welcome);
-
-        mascota.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myintent = new Intent(getApplicationContext(),mascota.class);
-                startActivity(myintent);
-
-            }
-        });
+        final String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        int pos = email.indexOf("@");
+        final String userm = email.substring(0, pos);
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
 
@@ -53,16 +54,21 @@ public class Welcome_Activity extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(), tabActivity.class);
                 intent.putExtra("animal", position);
                 if(seleccionado.equals("0")){
-                    databaseReference.child(MainActivity.usuario).child("Animal").child("Perro").setValue(seleccionado);}
+                    databaseReference.child(userm).child("Animal").child("Perro").setValue(seleccionado);}
                 else if (seleccionado.equals("1")){
-                    databaseReference.child(MainActivity.usuario).child("Animal").child("Gato").setValue(seleccionado);}
+                    databaseReference.child(userm).child("Animal").child("Gato").setValue(seleccionado);}
                 else if (seleccionado.equals("2")){
-                    databaseReference.child(MainActivity.usuario).child("Animal").child("Hamster").setValue(seleccionado);}
+                    databaseReference.child(userm).child("Animal").child("Hamster").setValue(seleccionado);}
                 else{
-                    databaseReference.child(MainActivity.usuario).child("Animal").child("Ave").setValue(seleccionado);}
+                    databaseReference.child(userm).child("Animal").child("Ave").setValue(seleccionado);}
                 startActivity(intent);
             }
         });
+    }
+
+    public void miMascota(View view){
+        Intent intent = new Intent(getBaseContext(),mascota.class);
+        startActivity(intent);
     }
 
     public class ImageAdapter extends BaseAdapter {
