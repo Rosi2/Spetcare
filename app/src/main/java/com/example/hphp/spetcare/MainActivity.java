@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -70,6 +71,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
     }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
     private void registrarUsuario(){
         //Obtenemos el email y la contraseña desde las cajas de texto
         String email = TextEmail.getText().toString().trim();
@@ -169,6 +178,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.login:
                 loguearUsuario();
                 break;
+        }
+    }
+
+    private void updateUI(FirebaseUser user){
+        if (user != null) {
+            Intent intencion = new Intent(getApplication(), Welcome_Activity.class);
+            intencion.putExtra(Welcome_Activity.user, user);
+            startActivity(intencion);
+            finish();
         }
     }
 }
