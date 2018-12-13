@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,17 +21,27 @@ public class Welcome_Activity extends AppCompatActivity {
     public static final String user="names";
     TextView txtUser;
     String seleccionado;
+    Button mascota;
     DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        mascota= (Button) findViewById(R.id.mascota);
         txtUser =(TextView)findViewById(R.id.textser);
         String user = getIntent().getStringExtra("names");
         txtUser.setText("Bienvenido "+ user);
         databaseReference= FirebaseDatabase.getInstance().getReference();
         setContentView(R.layout.activity_welcome);
 
+        mascota.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myintent = new Intent(getApplicationContext(),mascota.class);
+                startActivity(myintent);
+
+            }
+        });
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
 

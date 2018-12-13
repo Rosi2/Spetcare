@@ -2,6 +2,7 @@ package com.example.hphp.spetcare;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnRegistrar, btnLogin;
     private ProgressDialog progressDialog;
     EditText mEtPwd;
-    public static String usuario;
+    public static String usuario, pass;
     CheckBox mCbShowPwd;
     //Declaramos un objeto firebaseAuth
     private FirebaseAuth firebaseAuth;
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void loguearUsuario() {
         //Obtenemos el email y la contraseña desde las cajas de texto
         final String email = TextEmail.getText().toString().trim();
-        String password = TextPassword.getText().toString().trim();
+        final String password = TextPassword.getText().toString().trim();
         //Verificamos que las cajas de texto no esten vacías
         if (TextUtils.isEmpty(email)) {//(precio.equals(""))
             Toast.makeText(this, "Se debe ingresar un email", Toast.LENGTH_LONG).show();
@@ -132,6 +133,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Intent intencion = new Intent(getApplication(), Welcome_Activity.class);
                             intencion.putExtra(Welcome_Activity.user, user);
                             usuario=user;
+                            pass=password;
+                            saveData();
                             startActivity(intencion);
                             finish();
                         } else {
@@ -144,6 +147,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         progressDialog.dismiss();
                     }
                 });
+    }
+    private void saveData() {
+        SharedPreferences.Editor spe = getPreferences(MODE_PRIVATE).edit();
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(usuario);
+        sb.append(pass);
+
+        spe.putString("login", sb.toString());
+        spe.commit();
     }
 
     @Override

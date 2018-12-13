@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Welcome_Activity" />
+        <activity android:name=".mascota" />
         <activity
             android:name=".tabActivity"
             android:label="@string/title_activity_tab"
@@ -28,6 +29,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hphp.spetcare.Welcome_Activity" />
         </activity>
+
 
     </application>
 
