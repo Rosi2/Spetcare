@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Welcome_Activity extends AppCompatActivity {
     public static final String user="names";
+    public static String prueba;
     TextView txtUser;
     String seleccionado;
     Button mascota;
@@ -43,6 +44,7 @@ public class Welcome_Activity extends AppCompatActivity {
         final String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         int pos = email.indexOf("@");
         final String userm = email.substring(0, pos);
+        prueba=userm;
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
 

@@ -14,9 +14,10 @@ import com.google.firebase.database.FirebaseDatabase;
 public class mascota extends AppCompatActivity {
     public static final String user="names";
     TextView txtUser;
+    String seleccionado,seleccionado1;
+    public static String nom,tip;
     DatabaseReference databaseReference;
     Button boton1;
-    String seleccionado, seleccionado1;
     private EditText nombre, tipo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,10 @@ public class mascota extends AppCompatActivity {
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //datos p1 = new datos(Welcome_Activity.prueba);
-                //databaseReference.child(Welcome_Activity.prueba).child("Mi mascota").setValue(nombre);
+                datos p1 = new datos("holi");
+                seleccionado=nombre.getText().toString();
+                seleccionado1=tipo.getText().toString();
+                databaseReference.child(Welcome_Activity.prueba).child("Mi mascota es "+ seleccionado1).setValue(seleccionado);
                 //databaseReference.child(Welcome_Activity.prueba).child("Mi mascota").setValue(tipo);
                 Intent myintent = new Intent(getApplicationContext(),Welcome_Activity.class);
                 startActivity(myintent);
